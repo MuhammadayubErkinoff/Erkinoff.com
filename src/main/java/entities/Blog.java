@@ -1,6 +1,14 @@
-package Other;
+package entities;
 
+
+import jakarta.persistence.*;
+
+@Entity
 public class Blog {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true)
     private int ID;
     private String title;
     private String blog;
@@ -8,13 +16,6 @@ public class Blog {
     private String date;
 
     public Blog() {
-    }
-
-    public Blog(int ID, String title, String blog, String date) {
-        this.ID = ID;
-        this.title = title;
-        this.blog = blog;
-        this.date = date;
     }
 
     public int getID() {

@@ -1,5 +1,8 @@
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+%>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="Other.Blog" %><%--
+<%@ page import="entities.Blog" %><%--
   Created by IntelliJ IDEA.
   User: muhammadayubxon
   Date: 04/09/23
@@ -16,7 +19,7 @@
     <%
         ArrayList<Blog>blogList=(ArrayList<Blog>)request.getAttribute("blogList");
         for(int i=0;i<blogList.size();i++){
-            out.print("<a href=\"blog?num="+blogList.get(i).getID()+"\">"+blogList.get(i).getTitle()+"</a>");
+            out.print("<a href=\"blog?num="+blogList.get(i).getID()+"\">"+blogList.get(i).getTitle()+"</a><br>");
         }
 
     %>

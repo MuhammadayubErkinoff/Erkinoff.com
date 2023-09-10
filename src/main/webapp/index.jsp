@@ -1,3 +1,7 @@
+
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+%>
 <html>
 <head>
     <style>
@@ -27,6 +31,20 @@
     <form action="social">
         <button class="button">My Social Medias</button>
     </form>
+    <br><br><br>
+    <%
+        if(request.getSession().getAttribute("username")==null) {
+            out.println("<form action=\"log_in\">");
+            out.println("<button class=\"button\">Log in</button>");
+            out.println("</form>");
+            out.println("<form action=\"sign_in\">");
+            out.println("<button class=\"button\">Sign up</button>");
+            out.println("</form>");
+        }
+        else{
+            out.print("Hello "+request.getSession().getAttribute("username"));
+        }
+    %>
 
 </body>
 </html>

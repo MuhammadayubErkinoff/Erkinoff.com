@@ -1,4 +1,8 @@
-<%@ page import="controllers.SocialMedia" %>
+
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+%>
+<%@ page import="entities.SocialMedia" %>
 <%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: muhammadayubxon
@@ -15,7 +19,7 @@
 <p>
   <%
     for(SocialMedia socialMedia:(ArrayList<SocialMedia>)request.getAttribute("socialMediaList")){
-        out.print("<a href=\""+socialMedia.getLink()+"\">My "+socialMedia.getName()+"</a>");
+        out.print("<a href=\""+socialMedia.getLink()+"\">My "+socialMedia.getName()+"</a><br>");
     }
   %>
 </p>
